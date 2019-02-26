@@ -1,0 +1,19 @@
+{
+  "name": "address-bloc",
+  "version": "1.0.0",
+  "description": "address book application created with node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaggers/address-bloc.git"
+  },
+  "author": "cameron lenartowich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaggers/address-bloc/issues"
+  },
+  "homepage": "https://github.com/shaggers/address-bloc#readme"
+}
