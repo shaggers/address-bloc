@@ -2,7 +2,7 @@
   "name": "address-bloc",
   "version": "1.0.0",
   "description": "address book application created with node",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/shaggers/address-bloc/issues"
   },
-  "homepage": "https://github.com/shaggers/address-bloc#readme"
+  "homepage": "https://github.com/shaggers/address-bloc#readme",
+  "dependencies": {
+    "inquirer": "^5.1.0"
+  }
 }
