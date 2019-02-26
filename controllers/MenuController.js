@@ -9,6 +9,7 @@ const inquirer = require('inquirer');
           message: "Please choose from an option below: ",
           choices: [
             "Add new contact",
+            "Get Date",
             "Exit"
           ]
         }
@@ -22,7 +23,10 @@ const inquirer = require('inquirer');
         switch(response.mainMenuChoice){
             case "Add new contact":
             this.addContact();
-            break;
+                break;
+            case "Get Date":
+            this.getDate();
+                break;
             case "Exit":
             this.exit();
             default:
@@ -43,10 +47,17 @@ const inquirer = require('inquirer');
         this.clear();
         console.log('addContact called');
         this.main();
-      }
+    }
    
-      exit(){
+    exit(){
         console.log("Thanks for using AddressBloc!");
         process.exit();
-      }
+    }
+
+    getDate(){
+        this.clear();
+        let datetime = new Date();
+        console.log(datetime);
+        this.main();
+    }
  }
