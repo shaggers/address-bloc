@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const ContactController = require("./ContactControllers.js");
 
  module.exports = class MenuController {
    constructor(){
@@ -9,11 +10,12 @@ const inquirer = require('inquirer');
           message: "Please choose from an option below: ",
           choices: [
             "Add new contact",
+            "Get Date",
             "Exit"
           ]
         }
       ];
-      this.contacts = [];
+      this.book = new ContactController();
    }
 
     main(){
@@ -22,7 +24,10 @@ const inquirer = require('inquirer');
         switch(response.mainMenuChoice){
             case "Add new contact":
             this.addContact();
-            break;
+                break;
+            case "Get Date":
+            this.getDate();
+                break;
             case "Exit":
             this.exit();
             default:
@@ -41,18 +46,34 @@ const inquirer = require('inquirer');
 
     addContact(){
         this.clear();
-        console.log('addContact called');
-        this.main();
-      }
+        inquirer.prompt(this.book.addContactQuestions).then((answers) => {
+            this.book.addContact(answers.name, answers.phone).then((contact) => {
+              console.log("Contact added successfully!");
+              this.main();
+            }).catch((err) => {
+              console.log(err);
+              this.main();
+            });
+        });
+    }
    
-      exit(){
+    exit(){
         console.log("Thanks for using AddressBloc!");
         process.exit();
-      }
+    }
 
-      getContactCount(){
+    getContactCount(){
         return this.contacts.length;
-      }
+    }
 
+    getDate(){
+        this.clear();
+        let datetime = new Date();
+        console.log(datetime);
+        this.main();
+    }
 
- }
+    remindMe(){
+        return "Learning is a life-long pursuit.";
+    }
+}
